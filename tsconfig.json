@@ -21,7 +21,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@prisma/client": ["node_modules/@prisma/client"] // บังคับให้หา Prisma ที่นี่
+      "@prisma/client": ["src/generated/client"]
     }
   },
   "include": [

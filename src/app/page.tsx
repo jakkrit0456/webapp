@@ -9,11 +9,46 @@ export default function ContactPage() {
   const [tel, setTel] = React.useState(""); 
   const [texterea, setTexterea] = React.useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   alert('ส่งข้อมูลเรียบร้อยเเล้ว!!!');
+  //   //ส่งข้อมูลไปยัง Database หรือ API
+  // }
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('ส่งข้อมูลเรียบร้อยเเล้ว!!!');
-    //ส่งข้อมูลไปยัง Database หรือ API
-  }
+
+    const formData = {
+      name: name,
+      email: email,
+      tel: tel,
+      message: texterea,
+    };
+
+    try {
+      const response = await fetch('/api/contacts',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+      if (response.ok) {
+        alert('บันทึกสำเร็จ');
+        
+        setName("");
+        setEmail("");
+        setTel("");
+        setTexterea("");
+      } else {
+        const errorText = await response.text(); 
+        console.log("Error from server:", errorText);
+        alert('Server พังครับ ลองดูรายละเอียดใน Console');
+      }
+    } catch(error) {
+      console.log("Connection Error" + error);
+      alert('เชื่อมต่อ API ไม่ได้ ลองอีกครั้ง');
+    }
+  };
   
 
   return (

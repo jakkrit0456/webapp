@@ -11,13 +11,14 @@ export async function POST(request: Request) {
             data: {
                 name: body.name,    
                 email: body.email,
-                message: body.message
+                message: body.message,
             },
         });
         
+        console.log("บันทึกสำเร็จ", newContact);
         return NextResponse.json({message: "ส่งข้อมูลสำเร็จ", data: newContact}, {status: 200});
     } catch (error) {
-        console.error(error);
+        console.error("Prisma Error:", error);
         return NextResponse.json({message: "เกิดข้อผิดพลาดในการบันทึกข้อมูล"}, {status: 500});
     }
 }
