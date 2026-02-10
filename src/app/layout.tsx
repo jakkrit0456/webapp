@@ -1,6 +1,7 @@
 // src/app/layout.tsx (บางส่วน)
 import Navbar from "@/components/Navbar"; 
 import "./globals.css"; 
+import Body from "@/components/Body";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">

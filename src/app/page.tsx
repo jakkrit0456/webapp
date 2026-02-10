@@ -14,6 +14,7 @@ export default function ContactPage() {
     alert('ส่งข้อมูลเรียบร้อยเเล้ว!!!');
     //ส่งข้อมูลไปยัง Database หรือ API
   }
+  
 
   return (
     <main className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
@@ -58,7 +59,7 @@ export default function ContactPage() {
           </div>
 
           {/* ข้อความเพิ่มเติม */}
-          <div>
+          {/* <div>
             <label className="block text-sm font-medium text-gray-700">ข้อความเพิ่มเติม</label>
             <input
               type="text"
@@ -66,6 +67,15 @@ export default function ContactPage() {
               onChange={(e) => setTexterea(e.target.value)}
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="กรุณากรอกข้อความเพิ่มเติมของคุณ (ถ้ามี)" />
+          </div> */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">ข้อความเพิ่มเติม</label>
+            <textarea
+              value={texterea}
+              onChange={(e) => setTexterea(e.target.value)}
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="กรุณากรอกข้อความเพิ่มเติมของคุณ (ถ้ามี)"
+              rows={4} />
           </div>
 
           {/* ปุ่มส่งข้อมูล */}
